@@ -16,17 +16,10 @@ namespace TechnologyIndustriesShop.Win
         public Form1()
         {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
             var productosBL = new ProductosBL();
             var listaDeProductos = productosBL.AccederProductos();
 
-            foreach (var producto in listaDeProductos)
-            {
-                MessageBox.Show(producto.Descripcion);
-            }
+            listaDeProductosBindingSource.DataSource = listaDeProductos;
         }
     }
 }
