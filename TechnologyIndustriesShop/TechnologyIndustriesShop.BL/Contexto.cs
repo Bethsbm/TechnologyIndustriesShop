@@ -11,7 +11,7 @@ namespace TechnologyIndustriesShop.BL
     public class Contexto: DbContext
     {
         public Contexto(): base(@"Data Source=(LocalDb)\MSSQLLocalDB;AttachDBFilename="+
-            Environment.GetFolderPath(Environment.SpecialFolder.Desktop) + @"\TechnologyIndustriesShopDB.mdf")
+            Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\TechnologyIndustriesShopDB.mdf")
         {
 
         }

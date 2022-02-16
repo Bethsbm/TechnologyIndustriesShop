@@ -22,5 +22,58 @@ namespace TechnologyIndustriesShop.WebAdmin.Controllers
             var listaDeCategorias = _categoriasBL.AccederCategorias();
             return View(listaDeCategorias);
         }
+
+        [HttpGet]
+        public ActionResult Crear()
+        {
+            var nuevaCategoria = new Categoria();
+
+            return View(nuevaCategoria);
+        }
+
+        [HttpPost]
+        public ActionResult Crear(Categoria categoria)
+        {
+            _categoriasBL.GuardarCategoria(categoria);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Editar(int id)
+        {
+            var categoria = _categoriasBL.ObtenerCategoria(id);
+
+            return View(categoria);
+        }
+
+        [HttpPost]
+        public ActionResult Editar(Categoria categoria)
+        {
+            _categoriasBL.GuardarCategoria(categoria);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ActionResult Detalle(int id)
+        {
+            var categoria = _categoriasBL.ObtenerCategoria(id);
+
+            return View(categoria);
+        }
+
+        [HttpGet]
+        public ActionResult Eliminar(int id)
+        {
+            var categoria = _categoriasBL.ObtenerCategoria(id);
+
+            return View(categoria);
+        }
+
+        [HttpPost]
+        public ActionResult Eliminar(Categoria categoria)
+        {
+            _categoriasBL.EliminarCategoria(categoria.Id);
+            return RedirectToAction("Index");
+        }
     }
 }

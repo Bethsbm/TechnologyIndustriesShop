@@ -1,24 +1,18 @@
-﻿@model IEnumerable<TechnologyIndustriesShop.BL.Producto>
+﻿@model IEnumerable<TechnologyIndustriesShop.BL.Categoria>
 
 @{
-    ViewBag.Title = "Productos";
+    ViewBag.Title = "Categorias";
 }
 
-<h2>Productos</h2>
+<h2>Categorías de productos</h2>
 
 <p>
-    @Html.ActionLink("Crear nuevo", "Crear")
+    @Html.ActionLink("Crear Nueva", "Crear")
 </p>
 <table class="table">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Descripcion)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Precio)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Activo)
         </th>
         <th></th>
     </tr>
@@ -27,12 +21,6 @@
     <tr>
         <td>
             @Html.DisplayFor(modelItem => item.Descripcion)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Precio)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Activo)
         </td>
         <td>
             @Html.ActionLink("Editar", "Editar", new { id=item.Id }) |
