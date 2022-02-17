@@ -19,7 +19,10 @@ namespace TechnologyIndustriesShop.BL
 
         public List<Producto> AccederProductos()
         {
-            ListaDeProductos = _contexto.Productos.ToList();
+            ListaDeProductos = _contexto.Productos
+                .Include("Categoria")
+                .ToList();
+
             return ListaDeProductos;
         }
 
@@ -31,15 +34,18 @@ namespace TechnologyIndustriesShop.BL
             } else
             {
                 var productoExistente = _contexto.Productos.Find(producto.Id);
+
                 productoExistente.Descripcion = producto.Descripcion;
+                productoExistente.CategoriaId = producto.CategoriaId;
                 productoExistente.Precio = producto.Precio;
+                productoExistente.Activo = producto.Activo;
             }
             _contexto.SaveChanges();
         }
 
         public Producto ObtenerProducto(int id)
         {
-            var producto = _contexto.Productos.Find(id);
+            var producto = _contexto.Productos.Include("Categoria").FirstOrDefault(p => p.Id == id);
 
             return producto;
         }

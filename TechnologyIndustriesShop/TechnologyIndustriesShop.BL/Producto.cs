@@ -17,6 +17,7 @@ namespace TechnologyIndustriesShop.BL
         public string Descripcion { get; set; }
         public double Precio { get; set; }
         public bool Activo { get; set; }
+        public int CategoriaId { get; set; }
         public Categoria Categoria { get; set; }
     }
 }
