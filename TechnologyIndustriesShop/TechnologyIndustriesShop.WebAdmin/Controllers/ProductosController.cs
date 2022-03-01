@@ -56,6 +56,7 @@ namespace TechnologyIndustriesShop.WebAdmin.Controllers
                 _productosBL.GuardarProducto(producto);
                 return RedirectToAction("Index");
             }
+
             var categorias = _categoriasBL.AccederCategorias();
 
             ViewBag.CategoriaId = new SelectList(categorias, "Id", "Descripcion");

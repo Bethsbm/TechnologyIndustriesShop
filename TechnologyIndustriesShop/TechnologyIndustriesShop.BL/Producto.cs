@@ -19,7 +19,7 @@ namespace TechnologyIndustriesShop.BL
         [Display(Name = "Descripción")]
         [Required(ErrorMessage = "Ingrese una descripción para el producto")]
         [MinLength(5, ErrorMessage = "Ingrese una descripción de al menos 5 caracteres")]
-        [MaxLength(30, ErrorMessage = "Ingrese una descripción de 15 caracteres máximo")]
+        [MaxLength(30, ErrorMessage = "Ingrese una descripción de 30 caracteres máximo")]
         public string Descripcion { get; set; }
 
         [Required(ErrorMessage = "Ingrese un precio para el producto")]
