@@ -39,6 +39,7 @@ namespace TechnologyIndustriesShop.BL
                 productoExistente.CategoriaId = producto.CategoriaId;
                 productoExistente.Precio = producto.Precio;
                 productoExistente.Activo = producto.Activo;
+                productoExistente.UrlImagen = producto.UrlImagen;
             }
             _contexto.SaveChanges();
         }
