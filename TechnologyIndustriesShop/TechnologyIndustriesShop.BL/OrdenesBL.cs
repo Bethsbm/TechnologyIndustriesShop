@@ -47,5 +47,27 @@ namespace TechnologyIndustriesShop.BL
 
             return orden;
         }
+
+        public List<OrdenDetalle> ObtenerOrdenDetalle(int ordenId)
+        {
+            var listaDeOrdenesDetalle = _contexto.OrdenDetalle
+                .Include("Producto")
+                .Where(o => o.OrdenId == ordenId).ToList();
+            return listaDeOrdenesDetalle;
+        }
+
+        public void GuardarDetalleOrden(OrdenDetalle ordenDetalle)
+        {
+            var producto = _contexto.Productos.Find(ordenDetalle.ProductoId);
+            ordenDetalle.Precio = producto.Precio;
+            ordenDetalle.Total = ordenDetalle.Cantidad * ordenDetalle.Precio;
+
+            _contexto.OrdenDetalle.Add(ordenDetalle);
+
+            var orden = _contexto.Ordenes.Find(ordenDetalle.OrdenId);
+            orden.Total = orden.Total + ordenDetalle.Total;
+
+            _contexto.SaveChanges();
+        }
     }
 }
