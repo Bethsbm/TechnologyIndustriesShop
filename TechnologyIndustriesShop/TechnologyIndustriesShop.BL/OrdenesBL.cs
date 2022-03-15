@@ -56,9 +56,17 @@ namespace TechnologyIndustriesShop.BL
             return listaDeOrdenesDetalle;
         }
 
+        public OrdenDetalle ObtenerOrdenDetallePorId(int id)
+        {
+            var ordenDetalle = _contexto.OrdenDetalle.Include("Producto").FirstOrDefault(p => p.Id == id);
+
+            return ordenDetalle;
+        }
+
         public void GuardarDetalleOrden(OrdenDetalle ordenDetalle)
         {
             var producto = _contexto.Productos.Find(ordenDetalle.ProductoId);
+
             ordenDetalle.Precio = producto.Precio;
             ordenDetalle.Total = ordenDetalle.Cantidad * ordenDetalle.Precio;
 
@@ -66,6 +74,17 @@ namespace TechnologyIndustriesShop.BL
 
             var orden = _contexto.Ordenes.Find(ordenDetalle.OrdenId);
             orden.Total = orden.Total + ordenDetalle.Total;
+
+            _contexto.SaveChanges();
+        }
+
+        public void EliminarOrdenDetalle(int id)
+        {
+            var ordenDetalle = _contexto.OrdenDetalle.Find(id);
+            _contexto.OrdenDetalle.Remove(ordenDetalle);
+
+            var orden = _contexto.Ordenes.Find(ordenDetalle.OrdenId);
+            orden.Total = orden.Total - ordenDetalle.Total;
 
             _contexto.SaveChanges();
         }
