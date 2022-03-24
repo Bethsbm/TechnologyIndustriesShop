@@ -9,11 +9,6 @@ namespace TechnologyIndustriesShop.BL
 {
     public class Cliente
     {
-        public Cliente()
-        {
-            Activo = true;
-        }
-
         public int Id { get; set; }
 
         [Required(ErrorMessage = "Ingrese el nombre del cliente")]
