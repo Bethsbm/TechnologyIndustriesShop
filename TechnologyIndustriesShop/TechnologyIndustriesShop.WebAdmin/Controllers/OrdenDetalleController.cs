@@ -32,7 +32,7 @@ namespace TechnologyIndustriesShop.WebAdmin.Controllers
             var nuevoDetalleOrden = new OrdenDetalle();
             nuevoDetalleOrden.OrdenId = id;
 
-            var productos = _productosBL.AccederProductos();
+            var productos = _productosBL.ObtenerProductosActivos();
 
             ViewBag.ProductoId = new SelectList(productos, "Id", "Descripcion");
 
@@ -54,7 +54,7 @@ namespace TechnologyIndustriesShop.WebAdmin.Controllers
                 return RedirectToAction("Index", new { id =ordenDetalle.OrdenId });
             }
 
-            var productos = _productosBL.AccederProductos();
+            var productos = _productosBL.ObtenerProductosActivos();
 
             ViewBag.ProductoId = new SelectList(productos, "Id", "Descripcion");
 

@@ -19,7 +19,19 @@ namespace TechnologyIndustriesShop.BL
 
         public List<Cliente> AccederClientes()
         {
-            ListaDeClientes = _contexto.Clientes.ToList();
+            ListaDeClientes = _contexto.Clientes
+                .OrderBy(r => r.Nombre)
+                .ToList();
+
+            return ListaDeClientes;
+        }
+
+        public List<Cliente> ObtenerClientesActivos()
+        {
+            ListaDeClientes = _contexto.Clientes
+                .Where(r => r.Activo == true)
+                .OrderBy(r => r.Nombre)
+                .ToList();
 
             return ListaDeClientes;
         }

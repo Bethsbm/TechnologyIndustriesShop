@@ -29,7 +29,7 @@ namespace TechnologyIndustriesShop.WebAdmin.Controllers
         public ActionResult Crear()
         {
             var nuevaOrden = new Orden();
-            var clientes = _clientesBL.AccederClientes();
+            var clientes = _clientesBL.ObtenerClientesActivos();
 
             ViewBag.ClienteId = new SelectList(clientes, "Id", "Nombre");
 
@@ -52,7 +52,7 @@ namespace TechnologyIndustriesShop.WebAdmin.Controllers
                 return RedirectToAction("Index");
 
             }
-            var clientes = _clientesBL.AccederClientes();
+            var clientes = _clientesBL.ObtenerClientesActivos();
             ViewBag.ClienteId = new SelectList(clientes, "Id", "Nombre");
 
             return View(orden);
@@ -61,7 +61,7 @@ namespace TechnologyIndustriesShop.WebAdmin.Controllers
         public ActionResult Editar(int id)
         {
             var orden = _ordenesBL.ObtenerOrden(id);
-            var clientes = _clientesBL.AccederClientes();
+            var clientes = _clientesBL.ObtenerClientesActivos();
 
             ViewBag.ClienteId = new SelectList(clientes, "Id", "Nombre", orden.ClienteId);
 
@@ -84,7 +84,7 @@ namespace TechnologyIndustriesShop.WebAdmin.Controllers
                 return RedirectToAction("Index");
 
             }
-            var clientes = _clientesBL.AccederClientes();
+            var clientes = _clientesBL.ObtenerClientesActivos();
             ViewBag.ClienteId = new SelectList(clientes, "Id", "Nombre", orden.ClienteId);
 
             return View(orden);
