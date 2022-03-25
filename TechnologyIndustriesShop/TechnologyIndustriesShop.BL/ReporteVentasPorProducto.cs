@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TechnologyIndustriesShop.BL
 {
-    class ReporteVentasPorProducto
+    public class ReporteVentasPorProducto
     {
         public string Producto { get; set; }
         public int Cantidad { get; set; }
