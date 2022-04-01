@@ -6,7 +6,7 @@
 
 <section class="story-area left-text center-sm-text">
     <div class="container">
-        <div class="heading"><h3>Elija nuestros productos</h3></div>
+        <div class="heading"><h3>Elija nuestros teléfonos</h3></div>
         <div class="row">
             @foreach (var producto in Model.Where(r => r.Categoria.Descripcion == "Teléfono").Take(4).OrderBy(r => Guid.NewGuid()))
             {
@@ -30,6 +30,34 @@
     <div class="pos-top triangle-bottom"></div>
     <div class="container">
         <h4 class="font-30 font-sm-20  center-text mb-25">Agregue <b>Accesorios</b> a su pedido</h4>
+    </div><!-- container -->
+</section>
+
+<section class="story-area left-text center-sm-text">
+    <div class="container">
+        <div class="row">
+            @foreach (var producto in Model.Where(r => r.Categoria.Descripcion == "Accesorios").Take(4).OrderBy(r => Guid.NewGuid()))
+            {
+                <div class="col-lg-3 col-md-4  col-sm-6 ">
+                    <div class="center-text mb-30">
+                        <div class="ïmg-200x mlr-auto pos-relative">
+                            <h6 class="ribbon-cont color-white"><div class="ribbon primary"></div><b>OFERTA</b></h6>
+                            <img src="@(ViewBag.adminWebsiteUrl + producto.UrlImagen)" alt="">
+                        </div>
+                        <h5 class="mt-20">@producto.Descripcion</h5>
+                        <h4 class="mt-5 color-primary"><b>L. @producto.Precio</b></h4>
+                    </div><!--text-center-->
+                </div><!-- col-md-3 -->
+            }
+        </div><!-- row-->
+    </div><!-- container -->
+</section>
+
+<section class="story-area bg-seller color-white pos-relative">
+    <div class="pos-bottom triangle-up"></div>
+    <div class="pos-top triangle-bottom"></div>
+    <div class="container">
+        <h4 class="font-30 font-sm-20  center-text mb-25">Todos <b>nuestros</b> productos</h4>
     </div><!-- container -->
 </section>
 
