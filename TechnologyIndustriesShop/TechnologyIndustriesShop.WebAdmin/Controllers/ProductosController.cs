@@ -7,6 +7,8 @@ using TechnologyIndustriesShop.BL;
 
 namespace TechnologyIndustriesShop.WebAdmin.Controllers
 {
+    [Authorize]
+
     public class ProductosController : Controller
     {
         ProductosBL _productosBL;

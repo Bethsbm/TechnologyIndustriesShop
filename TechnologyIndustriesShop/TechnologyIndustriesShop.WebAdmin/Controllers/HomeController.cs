@@ -6,6 +6,8 @@ using System.Web.Mvc;
 
 namespace TechnologyIndustriesShop.WebAdmin.Controllers
 {
+    [Authorize]
+
     public class HomeController : Controller
     {
         // GET: Home
